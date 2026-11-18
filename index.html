@@ -53,9 +53,9 @@ p,h1,h2,h3{margin:0}
 .mono{font-family:var(--mono)}
 
 /* ---------- beats ---------- */
-[data-b]{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease}
+[data-b]{opacity:1;transform:none}
 [data-b].on{opacity:1;transform:none}
-[data-only]{opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s}
+[data-only]{opacity:1;visibility:visible}
 [data-only].on{opacity:1;visibility:visible;transition:opacity .4s ease .08s,visibility 0s}
 
 /* ---------- waveform ---------- */
@@ -449,7 +449,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 02 THE PROBLEM ═════════ -->
-<section class="s s--light" id="s2" data-beats="3" data-label="The Problem">
+<section class="s s--light" id="s2" data-label="The Problem">
   <p class="eyebrow">1. Problem Statement &amp; Validation</p>
   <h2 class="h2 h2--sm">Dealership Inquiry Bottleneck</h2>
   <div class="prob-kpis">
@@ -522,7 +522,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 04 SOLUTION IDEATION & SCREENING ═════════ -->
-<section class="s s--light" id="s4" data-beats="4" data-jira-beat="4" data-label="Solution Screening">
+<section class="s s--light" id="s4" data-beats="1" data-jira-beat="1" data-label="Solution Screening">
   <p class="eyebrow">2. Solution Ideation &amp; Screening (Double Diamond)</p>
   <div class="slide-hd">
     <h2 class="h2 h2--sm">Solution Screening</h2>
@@ -586,7 +586,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 05 JOURNEYS, EXCEPTIONS & ALIGNMENT ═════════ -->
-<section class="s s--dark" id="s5j" data-beats="1" data-label="Journeys & Alignment">
+<section class="s s--dark" id="s5j" data-label="Journeys & Alignment">
   <p class="eyebrow">2. Product Concept · Journeys, Exceptions &amp; Alignment</p>
   <h2 class="h2 h2--sm">Journeys, Exceptions &amp; Alignment</h2>
   <div class="jrny-wrap">
@@ -609,7 +609,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 06 THE PRODUCT (DASHBOARD SUMMARY) ═════════ -->
-<section class="s s--light" id="s8" data-beats="3" data-label="Product Dashboard">
+<section class="s s--light" id="s8" data-label="Product Dashboard">
   <p class="eyebrow">2. The Product · Live Demo &amp; Portal</p>
   <h2 class="h2 h2--sm">Live Product Dashboard</h2>
   <div class="db">
@@ -675,7 +675,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 06 COMPETITIVE LANDSCAPE ═════════ -->
-<section class="s s--light" id="s6" data-beats="1" data-label="Competitors">
+<section class="s s--light" id="s6" data-label="Competitors">
   <p class="eyebrow">3. Competitive Landscape (Mexico)</p>
   <h2 class="h2 h2--sm">Competitive Landscape (Mexico)</h2>
   <div class="comp">
@@ -695,7 +695,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 07 BUSINESS MODEL & UNIT ECON ═════════ -->
-<section class="s s--light" id="s7" data-beats="2" data-label="Business Model">
+<section class="s s--light" id="s7" data-label="Business Model">
   <p class="eyebrow">3. Business Plan · Pricing &amp; Unit Economics (USD)</p>
   <h2 class="h2 h2--sm">Business Model &amp; Pricing</h2>
   <div class="bm">
@@ -769,7 +769,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 09 5-YEAR FINANCIALS ═════════ -->
-<section class="s s--dark" id="s9" data-beats="2" data-label="5-Year Financials">
+<section class="s s--dark" id="s9" data-label="5-Year Financials">
   <p class="eyebrow">3. 5-Year Financial Forecast &amp; Break-Even (USD)</p>
   <h2 class="h2 h2--sm">5-Year Financial Forecast</h2>
   <div class="fin-top">
@@ -807,7 +807,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 10 REQUIREMENTS & PRIORITIZATION ═════════ -->
-<section class="s s--light" id="s10" data-beats="2" data-jira-beat="2" data-label="Requirements">
+<section class="s s--light" id="s10" data-beats="1" data-jira-beat="1" data-label="Requirements">
   <p class="eyebrow">4. Product Requirements &amp; Prioritization</p>
   <div class="slide-hd">
     <h2 class="h2 h2--sm">Product Requirements</h2>
@@ -865,7 +865,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 11 NOW - NEXT - LATER ROADMAP ═════════ -->
-<section class="s s--light" id="s11" data-beats="3" data-jira-beat="3" data-label="Roadmap">
+<section class="s s--light" id="s11" data-beats="1" data-jira-beat="1" data-label="Roadmap">
   <p class="eyebrow">4. Product Roadmap (Now — Next — Later)</p>
   <div class="slide-hd">
     <h2 class="h2 h2--sm">Product Roadmap</h2>
@@ -912,7 +912,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 12 AGILE DELIVERY (EPICS & SPRINTS) ═════════ -->
-<section class="s s--dark" id="s12" data-beats="3" data-jira-beat="3" data-label="Agile Sprints">
+<section class="s s--dark" id="s12" data-beats="1" data-jira-beat="1" data-label="Agile Sprints">
   <p class="eyebrow">5. Agile Delivery · Discovery to Scrum</p>
   <div class="slide-hd">
     <h2 class="h2 h2--sm">Agile Delivery &amp; Sprints</h2>
@@ -971,7 +971,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 13 LAUNCH & GTM ═════════ -->
-<section class="s s--light" id="s14" data-beats="2" data-label="Launch & GTM">
+<section class="s s--light" id="s14" data-label="Launch & GTM">
   <p class="eyebrow">6. Launch Criteria &amp; Mexico Go-To-Market ("Next Steps")</p>
   <h2 class="h2 h2--sm">Launch &amp; Go-To-Market</h2>
   <div class="gates">
