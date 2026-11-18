@@ -354,12 +354,70 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 .risk-c p{font-size:15.5px;color:var(--txt);line-height:1.5;margin-bottom:16px}
 .risk-c .mit{border-top:1px solid var(--hair);padding-top:14px;font-size:15px;line-height:1.45;color:var(--ink);font-weight:600}
 
+
+/* ═════════ LIVE JIRA TOGGLE & ZOOM LIGHTBOX ═════════ */
+.slide-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;width:100%;margin-bottom:34px}
+.slide-hd .h2{margin:0}
+.jira-toggle{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:rgba(17,17,17,.08);border:1px solid var(--hair);flex-shrink:0}
+.s--dark .jira-toggle{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16)}
+.jira-toggle button{border:0;background:transparent;color:var(--muted);font:700 12px/1 var(--sans);letter-spacing:.04em;padding:8px 14px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.s--dark .jira-toggle button{color:rgba(255,255,255,.68)}
+.jira-toggle button.is-on{background:var(--red);color:#fff}
+.jira-swap{position:relative;width:100%}
+.jira-panel{display:none}
+.jira-panel.is-on{display:block;animation:jiraFade .28s ease}
+@keyframes jiraFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.jira-frame{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--hair);background:#fff;box-shadow:0 14px 36px rgba(0,0,0,.14);cursor:zoom-in}
+.s--dark .jira-frame{border-color:rgba(255,255,255,.18);box-shadow:0 18px 44px rgba(0,0,0,.45)}
+.jira-frame img{display:block;width:100%;height:100%;object-fit:contain;background:#fff}
+.jira-frame--sol{width:620px;height:420px}
+.jira-frame--req{width:540px;height:380px}
+.jira-frame--wide{width:1272px;height:510px}
+.jira-frame--annex{width:1240px;height:520px}
+.jira-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px;width:1272px}
+.jira-grid-2 .jira-frame{height:480px}
+.jira-cap{position:absolute;left:12px;bottom:12px;background:rgba(17,17,17,.84);color:#fff;font:700 11.5px/1.2 var(--sans);padding:7px 12px;border-radius:8px;backdrop-filter:blur(6px);pointer-events:none}
+.jira-hint{position:absolute;right:12px;bottom:12px;background:rgba(235,10,30,.92);color:#fff;font:800 11px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:999px;pointer-events:none}
+#zoom-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,12,16,.9);display:none;align-items:center;justify-content:center;padding:28px;backdrop-filter:blur(6px)}
+#zoom-modal.on{display:flex}
+#zoom-modal .zm-box{position:relative;max-width:94vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;gap:12px}
+#zoom-modal img{max-width:94vw;max-height:82vh;border-radius:12px;border:1px solid rgba(255,255,255,.2);box-shadow:0 24px 64px rgba(0,0,0,.65);background:#fff}
+#zoom-modal .zm-cap{color:#fff;font:700 14px/1.4 var(--sans);text-align:center}
+#zoom-modal .zm-close{position:absolute;top:-14px;right:-14px;width:36px;height:36px;border-radius:50%;border:0;background:var(--red);color:#fff;font:800 18px/1 var(--sans);cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .wv i{transform:scaleY(var(--h,.6))}
   .wk__bar i{transform:none}
 }
+
+/* ═════════ ANNEXES A7–A12 & PRINT FIX ═════════ */
+.ax-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:1272px}
+.ax-card{border:1px solid var(--hair);background:var(--soft);padding:22px 24px;border-radius:10px}
+.s--dark .ax-card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14)}
+.ax-card h3{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin:0 0 12px}
+.ax-tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.ax-tbl th,.ax-tbl td{padding:9px 10px;border-bottom:1px solid var(--hair);text-align:left}
+.s--dark .ax-tbl th,.s--dark .ax-tbl td{border-bottom-color:rgba(255,255,255,.12)}
+.ax-tbl th{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.ax-tbl tr.hi td{font-weight:800;color:var(--red)}
+.ax-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;width:1272px;margin-bottom:20px}
+.ax-kpi{border-top:3px solid var(--red);background:var(--soft);padding:16px 18px;border-radius:6px}
+.s--dark .ax-kpi{background:rgba(255,255,255,.06)}
+.ax-kpi small{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.ax-kpi b{display:block;font-size:26px;font-weight:900;color:var(--ink);margin:4px 0}
+.ax-kpi span{font-size:12.5px;color:var(--txt)}
+.ax-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;width:1272px}
+.ax-step{border:1px solid var(--hair);border-top:4px solid var(--ink);background:var(--soft);padding:20px;border-radius:8px}
+.ax-step.red{border-top-color:var(--red)}
+.ax-step small{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin-bottom:6px}
+.ax-step b{display:block;font-size:17px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.ax-step p{font-size:13.5px;line-height:1.45;color:var(--txt);margin:0}
+
 @media print{
+  .jira-toggle,.jira-hint,#zoom-modal{display:none!important}
+  .jira-swap .jira-panel{display:none!important}
+  .jira-swap .jira-panel[data-view="summary"]{display:block!important}
   @page{size:15in 8.4375in;margin:0}
   html,body{height:auto!important;overflow:visible!important;background:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   #wrap{position:static!important;overflow:visible!important;width:auto!important;height:auto!important}
@@ -463,10 +521,18 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 04 SOLUTION IDEATION & SCREENING ═════════ -->
-<section class="s s--light" id="s4" data-beats="3" data-label="Solution Screening">
+<section class="s s--light" id="s4" data-beats="4" data-jira-beat="4" data-label="Solution Screening">
   <p class="eyebrow">2. Solution Ideation &amp; Screening (Double Diamond)</p>
-  <h2 class="h2 h2--sm">Solution Screening</h2>
+  <div class="slide-hd">
+    <h2 class="h2 h2--sm">Solution Screening</h2>
+    <div class="jira-toggle" role="tablist" aria-label="View mode">
+      <button type="button" class="is-on" data-set-view="summary">Summary Chart</button>
+      <button type="button" data-set-view="jira">Live Jira</button>
+    </div>
+  </div>
   <div class="sol">
+    <div class="jira-swap">
+      <div class="jira-panel is-on" data-view="summary">
     <svg viewBox="0 0 620 420" width="620" height="420" aria-hidden="true">
       <rect x="70" y="20" width="520" height="340" fill="#F8FAFC" stroke="#DCDCDC" stroke-width="1.5"/>
       <line x1="330" y1="20" x2="330" y2="360" stroke="#CBD5E1" stroke-dasharray="5 5"/>
@@ -492,6 +558,15 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
       <circle cx="170" cy="295" r="10" fill="#94A3B8"/>
       <text x="170" y="319" text-anchor="middle" fill="#64748B" font-size="12" font-weight="700">B. IVR + Web Form</text>
     </svg>
+      </div>
+      <div class="jira-panel" data-view="jira">
+        <div class="jira-frame jira-frame--sol" data-zoom="jira_screenshots/4.jpeg" data-caption="Jira Product Discovery — Impact vs Effort Matrix (XIRAN Impact Score: 100)">
+          <img src="jira_screenshots/4.jpeg" alt="Jira Product Discovery Impact vs Effort Matrix">
+          <span class="jira-cap">Jira Discovery · Impact vs Effort</span>
+          <span class="jira-hint">Click to zoom</span>
+        </div>
+      </div>
+    </div>
     <div class="sol__list">
       <div class="sol__item" data-b="1">
         <b>1. Phone-First Service Reality</b>
@@ -731,10 +806,19 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 10 REQUIREMENTS & PRIORITIZATION ═════════ -->
-<section class="s s--light" id="s10" data-beats="2" data-label="Requirements">
+<section class="s s--light" id="s10" data-beats="2" data-jira-beat="2" data-label="Requirements">
   <p class="eyebrow">4. Product Requirements &amp; Prioritization</p>
-  <h2 class="h2 h2--sm">Product Requirements</h2>
+  <div class="slide-hd">
+    <h2 class="h2 h2--sm">Product Requirements</h2>
+    <div class="jira-toggle" role="tablist" aria-label="View mode">
+      <button type="button" class="is-on" data-set-view="summary">Summary Matrix</button>
+      <button type="button" data-set-view="jira">Live Jira Matrix</button>
+      <button type="button" data-set-view="jira-table">Jira Table</button>
+    </div>
+  </div>
   <div class="req">
+    <div class="jira-swap">
+      <div class="jira-panel is-on" data-view="summary">
     <svg viewBox="0 0 540 380" width="540" height="380" aria-hidden="true">
       <rect x="60" y="20" width="450" height="310" fill="#F8FAFC" stroke="#DCDCDC" stroke-width="1.5"/>
       <line x1="285" y1="20" x2="285" y2="330" stroke="#CBD5E1" stroke-dasharray="5 5"/>
@@ -755,6 +839,22 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
       <rect x="363" y="161" width="44" height="28" rx="14" fill="#64748B"/><text x="385" y="179" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">R11</text>
       <rect x="448" y="281" width="44" height="28" rx="14" fill="#CBD5E1"/><text x="470" y="299" text-anchor="middle" fill="#475569" font-size="10.5" font-weight="800">R12</text>
     </svg>
+      </div>
+      <div class="jira-panel" data-view="jira">
+        <div class="jira-frame jira-frame--req" data-zoom="jira_screenshots/1.jpeg" data-caption="Jira Product Discovery — Product Req Priority Matrix (Value vs Effort)">
+          <img src="jira_screenshots/1.jpeg" alt="Jira Product Req Priority Matrix">
+          <span class="jira-cap">Jira Discovery · Product Req Priority</span>
+          <span class="jira-hint">Click to zoom</span>
+        </div>
+      </div>
+      <div class="jira-panel" data-view="jira-table">
+        <div class="jira-frame jira-frame--req" data-zoom="jira_screenshots/2.jpeg" data-caption="Jira Product Discovery — Product Requirements Table (XIR-12 to XIR-24)">
+          <img src="jira_screenshots/2.jpeg" alt="Jira Product Requirements Table">
+          <span class="jira-cap">Jira Discovery · Requirements Table</span>
+          <span class="jira-hint">Click to zoom</span>
+        </div>
+      </div>
+    </div>
     <div class="req__list" data-b="1">
       <div class="req__c"><small>For Car Owners &amp; Policyholders (Now: Req 1, 2, 4, 5)</small><p>24/7 immediate pickup, live maintenance slot booking, proactive 30-day insurance renewal calls, and instant WhatsApp confirmations.</p></div>
       <div class="req__c" style="border-left-color:#111"><small style="color:#111">For Service Advisors &amp; Workshop Managers (Now/Next: Req 3, 7, 8)</small><p>Automatic maintenance vs. urgent diagnostic triage, self-serve workshop bay/escalation rules, and full call transcripts for handoffs.</p></div>
@@ -764,9 +864,17 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 </section>
 
 <!-- ═════════ 11 NOW - NEXT - LATER ROADMAP ═════════ -->
-<section class="s s--light" id="s11" data-beats="2" data-label="Roadmap">
+<section class="s s--light" id="s11" data-beats="3" data-jira-beat="3" data-label="Roadmap">
   <p class="eyebrow">4. Product Roadmap (Now — Next — Later)</p>
-  <h2 class="h2 h2--sm">Product Roadmap</h2>
+  <div class="slide-hd">
+    <h2 class="h2 h2--sm">Product Roadmap</h2>
+    <div class="jira-toggle" role="tablist" aria-label="View mode">
+      <button type="button" class="is-on" data-set-view="summary">Roadmap Summary</button>
+      <button type="button" data-set-view="jira">Live Jira Board</button>
+    </div>
+  </div>
+  <div class="jira-swap">
+    <div class="jira-panel is-on" data-view="summary">
   <div class="rm">
     <div class="rm__col rm__col--now">
       <p class="rm__h">NOW</p>
@@ -791,12 +899,29 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
       <div class="rm__card"><b>Service-to-Sales Equity Mining</b><span>Req 11: Flag high-mileage cars for trade-in</span></div>
     </div>
   </div>
+    </div>
+    <div class="jira-panel" data-view="jira">
+      <div class="jira-frame jira-frame--wide" data-zoom="jira_screenshots/3.jpeg" data-caption="Jira Product Discovery — Now / Next / Later Product Roadmap">
+        <img src="jira_screenshots/3.jpeg" alt="Jira Product Roadmap Board">
+        <span class="jira-cap">Jira Discovery · Product Roadmap (Now / Next / Later)</span>
+        <span class="jira-hint">Click to zoom</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ═════════ 12 AGILE DELIVERY (EPICS & SPRINTS) ═════════ -->
-<section class="s s--dark" id="s12" data-beats="2" data-label="Agile Sprints">
+<section class="s s--dark" id="s12" data-beats="3" data-jira-beat="3" data-label="Agile Sprints">
   <p class="eyebrow">5. Agile Delivery · Discovery to Scrum</p>
-  <h2 class="h2 h2--sm">Agile Delivery &amp; Sprints</h2>
+  <div class="slide-hd">
+    <h2 class="h2 h2--sm">Agile Delivery &amp; Sprints</h2>
+    <div class="jira-toggle" role="tablist" aria-label="View mode">
+      <button type="button" class="is-on" data-set-view="summary">Sprint Plan</button>
+      <button type="button" data-set-view="jira">Live Jira Scrum</button>
+    </div>
+  </div>
+  <div class="jira-swap">
+    <div class="jira-panel is-on" data-view="summary">
   <div class="sp">
     <div class="sp__r">
       <div class="sp__top"><b>Sprint 1 (Weeks 1–2) · Core Inbound Maintenance MVP</b><span>30 / 30 hrs (100%)</span></div>
@@ -826,6 +951,22 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
     </div>
   </div>
   <p class="src">4 Scrum Epics: Inbound Maintenance (Green) · Outbound Insurance Renewal (Blue) · Dealership Portal &amp; Rules (Purple) · Future Expansion (Backlog).</p>
+    </div>
+    <div class="jira-panel" data-view="jira">
+      <div class="jira-grid-2">
+        <div class="jira-frame" data-zoom="jira_screenshots/5.jpeg" data-caption="Jira Software Scrum — Backlog, Epics &amp; Sprints 1–3">
+          <img src="jira_screenshots/5.jpeg" alt="Jira Scrum Backlog">
+          <span class="jira-cap">Scrum Backlog · Sprints 1–3</span>
+          <span class="jira-hint">Click to zoom</span>
+        </div>
+        <div class="jira-frame" data-zoom="jira_screenshots/6.jpeg" data-caption="Jira Software Scrum — Active Sprint 1 Board (To Do / In Progress / Done)">
+          <img src="jira_screenshots/6.jpeg" alt="Jira Active Sprint 1 Board">
+          <span class="jira-cap">Active Board · SCRUM Sprint 1</span>
+          <span class="jira-hint">Click to zoom</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ═════════ 13 LAUNCH & GTM ═════════ -->
@@ -877,31 +1018,31 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
 <section class="s s--dark" id="a1" data-label="Annex A1 · Jira">
   <p class="eyebrow">Annex A1 · Jira Product Discovery</p>
   <h2 class="h2 h2--sm">Solution Ideation — Impact vs. Effort Matrix</h2>
-  <div class="ax-box"><b>Placeholder: Paste Jira Screenshot 1 Here</b><p>Jira Product Discovery → <code>Impact vs Effort</code> view showing <code>XIRAN Autonomous Dealership Voice AI Platform</code> in the top-left Rocket quadrant.</p></div>
+  <div class="jira-frame jira-frame--annex" data-zoom="jira_screenshots/4.jpeg" data-caption="Annex A1 · Jira Product Discovery — Impact vs Effort Matrix"><img src="jira_screenshots/4.jpeg" alt="Jira Impact vs Effort"><span class="jira-cap">Jira Discovery · Impact vs Effort</span><span class="jira-hint">Click to zoom</span></div>
 </section>
 
 <section class="s s--dark" id="a2" data-label="Annex A2 · Jira">
   <p class="eyebrow">Annex A2 · Jira Product Discovery</p>
   <h2 class="h2 h2--sm">Product Requirements — Value vs. Effort Priority Matrix</h2>
-  <div class="ax-box"><b>Placeholder: Paste Jira Screenshot 2 Here</b><p>Jira Product Discovery → <code>Product Req Priority</code> matrix showing all 12 non-technical User Stories sized by <code>Requirement_Priority</code>.</p></div>
+  <div class="jira-frame jira-frame--annex" data-zoom="jira_screenshots/2.jpeg" data-caption="Annex A2 · Jira Product Discovery — Product Requirements (XIR-12 to XIR-24)"><img src="jira_screenshots/2.jpeg" alt="Jira Product Requirements Table"><span class="jira-cap">Jira Discovery · Product Requirements Table</span><span class="jira-hint">Click to zoom</span></div>
 </section>
 
 <section class="s s--dark" id="a3" data-label="Annex A3 · Jira">
   <p class="eyebrow">Annex A3 · Jira Product Discovery</p>
   <h2 class="h2 h2--sm">Product Roadmap — NOW / NEXT / LATER Board</h2>
-  <div class="ax-box"><b>Placeholder: Paste Jira Screenshot 3 Here</b><p>Jira Product Discovery → <code>Product roadmap</code> board view grouped into <code>Now (5)</code>, <code>Next (3)</code>, <code>Later (3)</code>, and <code>Won't do (1)</code>.</p></div>
+  <div class="jira-frame jira-frame--annex" data-zoom="jira_screenshots/3.jpeg" data-caption="Annex A3 · Jira Product Discovery — Product Roadmap Board"><img src="jira_screenshots/3.jpeg" alt="Jira Product Roadmap"><span class="jira-cap">Jira Discovery · Product Roadmap</span><span class="jira-hint">Click to zoom</span></div>
 </section>
 
 <section class="s s--dark" id="a4" data-label="Annex A4 · Jira">
   <p class="eyebrow">Annex A4 · Jira Software Scrum</p>
   <h2 class="h2 h2--sm">Scrum Backlog — Color-Coded Epics &amp; Sprints 1–3</h2>
-  <div class="ax-box"><b>Placeholder: Paste Jira Screenshot 4 Here</b><p>Jira Scrum → <code>Backlog</code> view showing the 4 color-coded Epics, working-hour estimates, and Sprints 1–3 (30h capacity).</p></div>
+  <div class="jira-frame jira-frame--annex" data-zoom="jira_screenshots/5.jpeg" data-caption="Annex A4 · Jira Software Scrum — Backlog &amp; Sprints 1–3"><img src="jira_screenshots/5.jpeg" alt="Jira Scrum Backlog"><span class="jira-cap">Jira Scrum · Backlog &amp; Sprints 1–3</span><span class="jira-hint">Click to zoom</span></div>
 </section>
 
 <section class="s s--dark" id="a5" data-label="Annex A5 · Jira">
   <p class="eyebrow">Annex A5 · Jira Software Scrum</p>
   <h2 class="h2 h2--sm">Scrum Execution — Active Sprint Board &amp; Timeline</h2>
-  <div class="ax-box"><b>Placeholder: Paste Jira Screenshot 5 Here</b><p>Jira Scrum → Active <code>Board</code> (To Do / In Progress / Done) or <code>Timeline</code> view with Sprint Goals.</p></div>
+  <div class="jira-frame jira-frame--annex" data-zoom="jira_screenshots/6.jpeg" data-caption="Annex A5 · Jira Software Scrum — Active Sprint 1 Board"><img src="jira_screenshots/6.jpeg" alt="Jira Active Sprint 1 Board"><span class="jira-cap">Jira Scrum · Active Sprint 1 Board</span><span class="jira-hint">Click to zoom</span></div>
 </section>
 
 <!-- ═════════ ANNEX A6: REFERENCES ═════════ -->
@@ -921,20 +1062,206 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:8px;height
   </div>
 </section>
 
+<!-- ═════════ ANNEX A7: FULL UNIT ECONOMICS & TELNYX COGS ═════════ -->
+<section class="s s--dark" id="a7" data-label="Annex A7 · Unit Econ">
+  <p class="eyebrow">Annex A7 · Financial Defense</p>
+  <h2 class="h2 h2--sm">Unit Economics &amp; Telnyx MX COGS</h2>
+  <div class="ax-kpis">
+    <div class="ax-kpi"><small>Telnyx MX Voice COGS</small><b>$0.069/min</b><span>$0.065–$0.072/min (Telnyx + Deepgram + Inworld + Haiku + +52)</span></div>
+    <div class="ax-kpi"><small>Growth Tier Margin</small><b>78.0%</b><span>$799/mo ARPA − $175/mo COGS (at 75% bundle utilization)</span></div>
+    <div class="ax-kpi"><small>LTV &amp; LTV / CAC</small><b>$23.8k · 9.5x</b><span>36-mo avg. life (2.8% monthly churn) vs. $2.5k scaled CAC</span></div>
+    <div class="ax-kpi"><small>CAC Payback</small><b>4.0 Months</b><span>Recurring gross profit payback ($1,800 Y1 founder-led CAC)</span></div>
+  </div>
+  <div class="ax-grid-2">
+    <div class="ax-card">
+      <h3>Tier-by-Tier Margin Structure (USD)</h3>
+      <table class="ax-tbl">
+        <thead><tr><th>Tier</th><th>Price/Mo</th><th>Included Calls</th><th>Overage</th><th>Est. COGS (75%)</th><th>Gross Margin</th></tr></thead>
+        <tbody>
+          <tr><td>Core (Posventa)</td><td>$499</td><td>400</td><td>$0.95/call</td><td>~$70</td><td>~86%</td></tr>
+          <tr class="hi"><td>Growth (Target ARPA)</td><td>$799</td><td>1,000</td><td>$0.75/call</td><td>$175</td><td>78.0%</td></tr>
+          <tr><td>Scale (Flagship)</td><td>$1,299</td><td>2,200</td><td>$0.60/call</td><td>~$385</td><td>~70%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ax-card">
+      <h3>Setup Fee &amp; Overage Protection</h3>
+      <table class="ax-tbl">
+        <tbody>
+          <tr><td><b>One-Time Setup Fee</b></td><td>$1,800 standard ($1,200 for 5+ Grupo Automotriz); covers DB mapping, agent tuning, and +52 SIP provisioning.</td></tr>
+          <tr><td><b>Overage Margin</b></td><td>At ~3.4 min avg. call ($0.23 COGS/call), $0.60–$0.95 overage pricing protects &gt;60%–75% margin on volume spikes.</td></tr>
+          <tr><td><b>Contribution / Dealership</b></td><td>$623/mo recurring contribution margin → 30 dealerships covers $18,750/mo fixed burn (Month 13 break-even).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ ANNEX A8: 5-YEAR P&L & ASSUMPTIONS ═════════ -->
+<section class="s s--light" id="a8" data-label="Annex A8 · 5-Yr P&L">
+  <p class="eyebrow">Annex A8 · Financial Defense</p>
+  <h2 class="h2 h2--sm">5-Year P&amp;L &amp; Operating Assumptions</h2>
+  <div class="ax-card" style="width:1272px;margin-bottom:20px">
+    <h3>Consolidated 5-Year Operating Forecast ($ USD Thousands)</h3>
+    <table class="ax-tbl">
+      <thead><tr><th>Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4 (SOM)</th><th>Year 5</th></tr></thead>
+      <tbody>
+        <tr><td><b>Active Car Dealerships (EoP)</b></td><td>25</td><td>85</td><td>200</td><td>350</td><td>550</td></tr>
+        <tr><td><b>Total Gross Revenue (Maint. + Setup)</b></td><td>$284.7</td><td>$927.3</td><td>$2,164.5</td><td>$3,766.5</td><td>$5,956.0</td></tr>
+        <tr><td><b>Gross Profit (78% Target Margin)</b></td><td>$222.1</td><td>$723.3</td><td>$1,688.3</td><td>$2,937.9</td><td>$4,645.7</td></tr>
+        <tr><td><b>Total OpEx (R&amp;D, S&amp;M, Ops, G&amp;A)</b></td><td>($225.0)</td><td>($452.0)</td><td>($887.5)</td><td>($1,305.0)</td><td>($1,880.0)</td></tr>
+        <tr class="hi"><td>EBITDA ($k / Margin %)</td><td>($2.9) / -1%</td><td>$271.3 / 29%</td><td>$800.8 / 37%</td><td>$1,632.9 / 43%</td><td>$2,765.7 / 46%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ax-grid-2">
+    <div class="ax-card">
+      <h3>Key Growth &amp; Retention Drivers</h3>
+      <table class="ax-tbl">
+        <tbody>
+          <tr><td><b>Target ARPA</b></td><td>$799/mo Growth tier ($9,588/yr recurring) + $1,800 one-time setup ($1,200 Grupo).</td></tr>
+          <tr><td><b>Monthly Churn</b></td><td>2.8% blended (36-month average dealership lifetime), anchored by workshop DB lock-in.</td></tr>
+          <tr><td><b>CAC Scaling</b></td><td>$1,800 in Year 1 (founder-led outbound) → $2,500 Years 2–5 (SDR/AE + AMDA events).</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ax-card">
+      <h3>Break-Even &amp; Capital Efficiency</h3>
+      <table class="ax-tbl">
+        <tbody>
+          <tr><td><b>Break-Even Point</b></td><td>30 active car dealerships (Month 13): $18,750/mo fixed burn ÷ $623/mo contribution.</td></tr>
+          <tr><td><b>Self-Funding Horizon</b></td><td>Profitable from Year 2 ($271.3k EBITDA); Year 4 SOM (350 dealerships) = 11.7% of MX SAM.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ ANNEX A9: TAM / SAM / SOM BOTTOM-UP MATH ═════════ -->
+<section class="s s--dark" id="a9" data-label="Annex A9 · Market Math">
+  <p class="eyebrow">Annex A9 · Market Sizing Defense</p>
+  <h2 class="h2 h2--sm">Bottom-Up TAM / SAM / SOM Methodology</h2>
+  <div class="ax-grid-2">
+    <div class="ax-card">
+      <h3>Global TAM (~175,000 Franchised Dealerships)</h3>
+      <table class="ax-tbl">
+        <thead><tr><th>Region (Source)</th><th>Franchised Dealerships</th><th>Share</th></tr></thead>
+        <tbody>
+          <tr><td>Europe (ACEA)</td><td>~50,000</td><td>28.6%</td></tr>
+          <tr><td>Japan (JADA)</td><td>~35,000</td><td>20.0%</td></tr>
+          <tr><td>China (4S Network)</td><td>~31,400</td><td>17.9%</td></tr>
+          <tr><td>United States (NADA)</td><td>~17,500</td><td>10.0%</td></tr>
+          <tr><td>Latin America (AMDA / Fenabrave)</td><td>~17,500</td><td>10.0%</td></tr>
+          <tr><td>Rest of World</td><td>~23,600</td><td>13.5%</td></tr>
+          <tr class="hi"><td>Global TAM @ $9,588 ACV</td><td>~175,000</td><td>~$1.68B / yr</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ax-card">
+      <h3>Mexico SAM &amp; Phased SOM Capture</h3>
+      <table class="ax-tbl">
+        <tbody>
+          <tr><td><b>SAM (Mexico AMDA)</b></td><td>3,000+ franchised car dealerships × $9,588 ACV = <b>$28.8M/yr</b> recurring (+ $5.4M one-time setup fee pool).</td></tr>
+          <tr><td><b>Year-1 Beachhead (80 Mapped)</b></td><td>80 dealerships already mapped across 5 Central MX zones: CDMX, Edomex Norte, Puebla, Querétaro, Pachuca (Toyota Pachuca Pilot 01).</td></tr>
+          <tr><td><b>Year-4 SOM (350 Dealerships)</b></td><td>11.7% of Mexico SAM → $3.77M annual revenue, driven by multi-site <i>Grupo Automotriz</i> rollouts.</td></tr>
+          <tr><td><b>Budget Anchor</b></td><td>Validated against existing dealership BDC / call-center OPEX ($2,000–$4,500/mo per location).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ ANNEX A10: MEXICO GTM PLAYBOOK & ONBOARDING ═════════ -->
+<section class="s s--light" id="a10" data-label="Annex A10 · GTM Playbook">
+  <p class="eyebrow">Annex A10 · Execution &amp; Onboarding</p>
+  <h2 class="h2 h2--sm">Mexico GTM Playbook &amp; 14-Day Onboarding</h2>
+  <div class="ax-flow" style="margin-bottom:22px">
+    <div class="ax-step red"><small>Days 1–3</small><b>DB &amp; Bay-Rule Mapping</b><p>Extract service bay capacity, advisor escalation numbers, and 30-day insurance renewal lists.</p></div>
+    <div class="ax-step"><small>Days 4–7</small><b>Agent &amp; +52 Provisioning</b><p>Configure es-MX inbound/outbound agents and provision Telnyx +52 BYO SIP trunking.</p></div>
+    <div class="ax-step"><small>Days 8–10</small><b>Shadow QA &amp; Gates</b><p>Verify &lt;900ms latency, 0% double-booking, &gt;85% valid slot rate, and &lt;2% drop rate.</p></div>
+    <div class="ax-step red"><small>Days 11–14</small><b>Pilot Go-Live &amp; KPIs</b><p>Live call handling, instant WhatsApp confirmations, and daily Aftersales KPI reporting.</p></div>
+  </div>
+  <div class="ax-grid-2">
+    <div class="ax-card">
+      <h3>Acquisition Motion (80-Dealership Beachhead)</h3>
+      <table class="ax-tbl">
+        <tbody>
+          <tr><td><b>1. Mystery Call Audits</b></td><td>Call target dealerships after-hours/peak to document missed service calls &amp; lost revenue.</td></tr>
+          <tr><td><b>2. 30-Day Pilot Proof</b></td><td>Convert Pilot 01 (Toyota Pachuca) into a quantified ROI case study for regional directors.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ax-card">
+      <h3>Grupo Automotriz Land-and-Expand</h3>
+      <table class="ax-tbl">
+        <tbody>
+          <tr><td><b>1. Single-Site Wedge</b></td><td>Prove ROI at 1 flagship dealership ($1,800 setup + $799/mo Growth).</td></tr>
+          <tr><td><b>2. Multi-Site Rollout</b></td><td>Expand across 5–15 sister dealerships in the same Grupo ($1,200 discounted setup).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ ANNEX A11: COMPETITIVE FEATURE & PRICING MATRIX ═════════ -->
+<section class="s s--light" id="a11" data-label="Annex A11 · Competitors">
+  <p class="eyebrow">Annex A11 · Competitive Defense</p>
+  <h2 class="h2 h2--sm">Detailed Competitive Feature Matrix</h2>
+  <div class="ax-card" style="width:1272px">
+    <h3>XIRAN vs. Mexico Alternatives</h3>
+    <table class="ax-tbl">
+      <thead><tr><th>Capability</th><th>XIRAN (Ours)</th><th>LATAM Chatbots (AI 4 Dealers / Cari)</th><th>US Auto AI (Impel / Numa / Podium)</th><th>MX Outsourced BDC</th><th>DIY APIs (Vapi / Retell)</th></tr></thead>
+      <tbody>
+        <tr><td><b>24/7 Native es-MX Voice</b></td><td><b>Yes (Sub-900ms)</b></td><td>Chat/WhatsApp first</td><td>Bilingual (US-tuned)</td><td>Business hours only</td><td>Requires custom build</td></tr>
+        <tr><td><b>Live Bay-Rule Triage</b></td><td><b>Yes (Code-enforced)</b></td><td>Basic form/handoff</td><td>US DMS only (CDK)</td><td>Manual / error-prone</td><td>No</td></tr>
+        <tr><td><b>Outbound Insurance Renewal</b></td><td><b>Yes (Two-way + warm transfer)</b></td><td>Broadcast text only</td><td>Limited in MX</td><td>High turnover / scripted</td><td>DIY build</td></tr>
+        <tr><td><b>Turnkey Local DB Mapping</b></td><td><b>Yes (14 days, $1,800)</b></td><td>Partial</td><td>Slow US enterprise</td><td>None</td><td>Engineering required</td></tr>
+        <tr class="hi"><td>Monthly Price (USD)</td><td>$499–$1,299 ($799 target)</td><td>~$400–$800</td><td>$1,500–$3,000+</td><td>$2,000–$4,500</td><td>Usage + Dev Payroll</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═════════ ANNEX A12: VOICE & TELEPHONY ARCHITECTURE ═════════ -->
+<section class="s s--dark" id="a12" data-label="Annex A12 · Architecture">
+  <p class="eyebrow">Annex A12 · Technical Backup</p>
+  <h2 class="h2 h2--sm">Voice AI &amp; +52 Telephony Architecture</h2>
+  <div class="ax-flow" style="margin-bottom:22px">
+    <div class="ax-step red"><small>1. Telephony Layer</small><b>Telnyx +52 BYO SIP</b><p>G.711 μ-law SIP trunking eliminates international packet loss and preserves caller transcripts.</p></div>
+    <div class="ax-step"><small>2. Speech &amp; LLM</small><b>es-MX Acoustic Stack</b><p>Deepgram ASR + Haiku reasoning + ElevenLabs es-MX voice with automatic Cartesia fallback.</p></div>
+    <div class="ax-step"><small>3. Guardrails</small><b>Code-Enforced Rules</b><p>Live workshop bay limits, Sunday closures, and urgent diagnostic safety escalations.</p></div>
+    <div class="ax-step red"><small>4. Outputs</small><b>Booking + WhatsApp</b><p>Writes confirmed slot/renewal intent, sends instant WhatsApp summary, and logs audio/KPIs.</p></div>
+  </div>
+  <div class="ax-kpis">
+    <div class="ax-kpi"><small>Latency Target</small><b>&lt;900 ms</b><span>Natural conversational turn-taking</span></div>
+    <div class="ax-kpi"><small>Fallback SLA</small><b>Zero Drop</b><span>Automatic Cartesia TTS failover</span></div>
+    <div class="ax-kpi"><small>Conflict Rate</small><b>0%</b><span>Deterministic bay capacity checks</span></div>
+    <div class="ax-kpi"><small>Stack Cost</small><b>$0.069/min</b><span>Verified Telnyx Native MX rate</span></div>
+  </div>
+</section>
+
 </div></div></div>
 
 <div id="rail" class="chrome"></div>
 <div id="counter" class="chrome"></div>
 <div id="arrows" class="chrome"><button id="bprev" aria-label="Previous">‹</button><button id="bnext" aria-label="Next">›</button></div>
 
+<div id="zoom-modal" aria-hidden="true">
+  <div class="zm-box">
+    <button type="button" class="zm-close" aria-label="Close zoom">&times;</button>
+    <img src="" alt="">
+    <div class="zm-cap"></div>
+  </div>
+</div>
+
 <div id="help"><div>
-  <h3>Shortcuts</h3>
-  <p><b>Right Arrow, Space, or Enter</b><span>Next step / slide</span></p>
-  <p><b>Left Arrow</b><span>Previous step / slide</span></p>
-  <p><b>PageDown / PageUp</b><span>Full slide</span></p>
+  <h3>Shortcuts &amp; Clicker</h3>
+  <p><b>Right Arrow, PageDown, Space, Enter</b><span>Next step / Live Jira / slide</span></p>
+  <p><b>Left Arrow, PageUp</b><span>Previous step / slide</span></p>
+  <p><b>Shift + PageDown / PageUp</b><span>Jump full slide</span></p>
   <p><b>Home / End</b><span>First slide / Complete current slide</span></p>
   <p><b>F</b><span>Fullscreen</span></p>
-  <p><b>?</b><span>Toggle help</span></p>
+  <p><b>Esc</b><span>Close zoom / help</span></p>
 </div></div>
 
 <script>
@@ -972,6 +1299,11 @@ addEventListener("resize", fit); fit();
 const beats = s => +s.dataset.beats || 0;
 const stepOf = s => +s.dataset.step || 0;
 
+function setJiraView(s, view){
+  $$("[data-set-view]", s).forEach(b => b.classList.toggle("is-on", b.dataset.setView === view));
+  $$(".jira-panel", s).forEach(p => p.classList.toggle("is-on", p.dataset.view === view));
+}
+
 function setStep(s, n){
   n = Math.max(0, Math.min(beats(s), n));
   s.dataset.step = n;
@@ -982,6 +1314,9 @@ function setStep(s, n){
     el.classList.toggle("act", n === +el.dataset.act);
     el.classList.toggle("done", n > +el.dataset.act);
   });
+  if(s.dataset.jiraBeat){
+    setJiraView(s, n >= +s.dataset.jiraBeat ? "jira" : "summary");
+  }
 }
 
 function go(i, step){
@@ -1008,15 +1343,35 @@ rail.addEventListener("click", e => { const m = e.target.closest(".mark"); if(m)
 $("#bnext").onclick = next;
 $("#bprev").onclick = prev;
 
+const zm = $("#zoom-modal"), zmImg = $("img", zm), zmCap = $(".zm-cap", zm);
+function closeZoom(){ zm.classList.remove("on"); zm.setAttribute("aria-hidden", "true"); }
+$$("[data-zoom]").forEach(el => el.addEventListener("click", () => {
+  zmImg.src = el.dataset.zoom;
+  zmCap.textContent = el.dataset.caption || "";
+  zm.classList.add("on");
+  zm.setAttribute("aria-hidden", "false");
+}));
+zm.addEventListener("click", e => { if(e.target === zm || e.target.closest(".zm-close")) closeZoom(); });
+
+$$(".jira-toggle button").forEach(btn => btn.addEventListener("click", () => {
+  const s = btn.closest(".s");
+  setJiraView(s, btn.dataset.setView);
+}));
+
 addEventListener("keydown", e => {
   if(e.metaKey || e.ctrlKey || e.altKey) return;
   const k = e.key;
+  if(k === "Escape"){
+    if(zm.classList.contains("on")){ closeZoom(); return; }
+    $("#help").classList.remove("on");
+    return;
+  }
+  if(zm.classList.contains("on")) return;
   if(k === "?"){ $("#help").classList.toggle("on"); return; }
-  if(k === "Escape"){ $("#help").classList.remove("on"); return; }
-  if(k === "ArrowRight" || k === " " || k === "Enter"){ e.preventDefault(); next(); }
-  else if(k === "ArrowLeft"){ e.preventDefault(); prev(); }
-  else if(k === "PageDown"){ e.preventDefault(); go(idx + 1, 0); }
-  else if(k === "PageUp"){ e.preventDefault(); go(idx - 1, 0); }
+  if(k === "ArrowRight" || k === " " || k === "Enter" || (k === "PageDown" && !e.shiftKey)){ e.preventDefault(); next(); }
+  else if(k === "ArrowLeft" || (k === "PageUp" && !e.shiftKey)){ e.preventDefault(); prev(); }
+  else if(k === "PageDown" && e.shiftKey){ e.preventDefault(); go(idx + 1, 0); }
+  else if(k === "PageUp" && e.shiftKey){ e.preventDefault(); go(idx - 1, 0); }
   else if(k === "Home"){ go(0, 0); }
   else if(k === "End"){ setStep(slides[idx], beats(slides[idx])); }
   else if(k === "f" || k === "F"){ document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
